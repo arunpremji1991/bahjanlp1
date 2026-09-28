@@ -441,3 +441,31 @@ svg { width: 1.15em; height: 1.15em; fill: none; stroke: currentColor; stroke-wi
   .footer-grid { grid-template-columns: 1fr 1fr; align-items: center; }
   .sources, .copy { grid-column: 1 / -1; }
 }
+
+/* ---------- Language toggle ---------- */
+.lang-btn {
+  display: inline-flex; align-items: center; gap: 6px; height: 44px; padding: 0 14px;
+  border-radius: 999px; text-decoration: none; color: #fff;
+  background: rgba(255, 255, 255, .1); border: 1px solid rgba(255, 255, 255, .14);
+  font: 600 14px/1 var(--f-display); transition: background .2s ease, border-color .2s ease;
+}
+.lang-btn:hover { background: rgba(255, 255, 255, .18); border-color: rgba(240, 199, 104, .5); }
+.lang-btn svg { width: 18px; height: 18px; color: var(--gold-400); }
+.lang-btn span { letter-spacing: .02em; }
+
+/* ---------- LTR (English page) adjustments ---------- */
+[dir="ltr"] body { line-height: 1.7; }
+[dir="ltr"] h1, [dir="ltr"] h2, [dir="ltr"] h3 { letter-spacing: -.02em; }
+[dir="ltr"] .hero h1 { line-height: 1.12; }
+[dir="ltr"] .btn-gold:hover svg { transform: translateX(4px); }
+[dir="ltr"] .hadith p { font-size: 19px; }
+[dir="ltr"] .brand-name { max-width: 170px; }
+@media (max-width: 380px) { .brand-name { font-size: 13px; } .lang-btn { padding: 0 11px; } }
+@media (min-width: 960px) { [dir="ltr"] .hero-frame { transform: rotate(1.2deg); } }
+
+/* Let grid children shrink so long (English) labels never widen the layout */
+.hero-grid > *, .meaning-grid > *, .options-grid > *, .about-grid > *, .faq-grid > * { min-width: 0; }
+.offer .btn, .plan-main .btn, .final .btn { white-space: normal; line-height: 1.25; text-align: center; }
+@media (max-width: 599px) { .btn-xl { padding: 0 24px; font-size: 18px; } }
+.sticky-price b { white-space: nowrap; }
+[dir="ltr"] .sticky-cta .btn { font-size: 15.5px; padding: 0 16px; }

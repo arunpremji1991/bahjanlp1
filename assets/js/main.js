@@ -107,7 +107,7 @@
     fbq('track', 'ViewContent', { content_name: 'برنامج كفالة يتيم', value: CONFIG.sponsorshipValue, currency: CONFIG.currency });
   }
 
-  push({ event: 'lp_view', lp: CONFIG.campaignPage, attribution: forwardAttr });
+  push({ event: 'lp_view', lp: CONFIG.campaignPage, page_lang: document.documentElement.lang, attribution: forwardAttr });
 
   /* ---------------- Event tracking ---------------- */
   function track(kind, ctaId, href) {
@@ -190,4 +190,14 @@
     var onScroll = function () { header.classList.toggle('is-scrolled', window.scrollY > 40); };
     window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
   }
+
+  /* ---------------- Language switch: keep ad attribution params ---------------- */
+  document.querySelectorAll('a[data-lang-switch]').forEach(function (a) {
+    try {
+      var u = new URL(a.getAttribute('href'), location.href);
+      params.forEach(function (v, k) { if (!u.searchParams.has(k)) u.searchParams.set(k, v); });
+      u.hash = location.hash;
+      a.href = u.toString();
+    } catch (e) { /* keep plain link */ }
+  });
 })();
