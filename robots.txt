@@ -1,0 +1,5 @@
+# Update the Sitemap URL when the final domain is connected
+User-agent: *
+Allow: /
+
+Sitemap: https://lightsteelblue-raven-902597.hostingersite.com/sitemap.xml
