@@ -90,7 +90,7 @@ svg { width: 1.15em; height: 1.15em; fill: none; stroke: currentColor; stroke-wi
 .hero { position: relative; background: linear-gradient(180deg, var(--teal-50), var(--paper)); overflow: hidden; }
 .hero-grid { display: grid; }
 .hero-media { position: relative; margin: 0 calc(var(--gutter) * -1); }
-.hero-media img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; }
+.hero-media img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; object-position: 62% 30%; }
 .hero-media::after { content: ""; position: absolute; inset: auto 0 0 0; height: 45%; background: linear-gradient(0deg, var(--paper), transparent); }
 .hero-copy { position: relative; padding: 0 0 44px; margin-top: -40px; z-index: 1; }
 .eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; color: var(--teal-700); background: var(--paper); border: 1px solid var(--teal-100); padding: 5px 14px; border-radius: 999px; margin-bottom: 14px; }
@@ -275,11 +275,12 @@ svg { width: 1.15em; height: 1.15em; fill: none; stroke: currentColor; stroke-wi
   .sticky-cta { display: none; }
   .header-cta { display: inline-flex; }
   .section { padding: 96px 0; }
-  .hero { background: var(--teal-50); }
-  .hero-grid { grid-template-columns: 1fr 1fr; align-items: center; gap: 56px; min-height: 540px; padding-block: 40px; }
-  .hero-media { margin: 0; order: 2; }
-  .hero-media img { aspect-ratio: 5 / 4; border-radius: 28px; box-shadow: var(--shadow); }
-  .hero-media::after { display: none; }
+  .hero { --hero-bg: #f4f6f2; background: var(--hero-bg); min-height: clamp(560px, 80vh, 720px); display: flex; align-items: center; }
+  .hero-grid { grid-template-columns: minmax(0, 560px); padding-block: 72px; }
+  .hero-media { position: absolute; inset-block: 0; inset-inline-end: 0; width: max(50%, calc(100% - 640px)); margin: 0; }
+  .hero-media img { width: 100%; height: 100%; aspect-ratio: auto; object-position: 78% 30%; }
+  .hero-media::after { inset: 0 -2px; height: auto; background: linear-gradient(to left, var(--hero-bg) 0%, rgba(244,246,242,.9) 12%, rgba(244,246,242,0) 45%), linear-gradient(to top, var(--hero-bg) 0%, rgba(244,246,242,0) 18%); }
+  [dir="ltr"] .hero-media::after { background: linear-gradient(to right, var(--hero-bg) 0%, rgba(244,246,242,.9) 12%, rgba(244,246,242,0) 45%), linear-gradient(to top, var(--hero-bg) 0%, rgba(244,246,242,0) 18%); }
   .hero-copy { margin: 0; padding: 0; }
   .hero h1 { font-size: min(42px, 3.2vw); text-wrap: wrap; }
   .hero h1 .accent { white-space: nowrap; }
