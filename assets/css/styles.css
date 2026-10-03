@@ -276,7 +276,7 @@ svg { width: 1.15em; height: 1.15em; fill: none; stroke: currentColor; stroke-wi
   .header-cta { display: inline-flex; }
   .section { padding: 96px 0; }
   .hero { background: var(--teal-50); }
-  .hero-grid { grid-template-columns: 1fr 1fr; align-items: center; gap: 56px; min-height: 540px; padding: 40px 0; }
+  .hero-grid { grid-template-columns: 1fr 1fr; align-items: center; gap: 56px; min-height: 540px; padding-block: 40px; }
   .hero-media { margin: 0; order: 2; }
   .hero-media img { aspect-ratio: 5 / 4; border-radius: 28px; box-shadow: var(--shadow); }
   .hero-media::after { display: none; }
