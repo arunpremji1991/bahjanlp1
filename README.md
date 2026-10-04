@@ -1,71 +1,70 @@
-# صفحة هبوط كفالة اليتيم — جمعية بهجة العمانية للأيتام
+# Bahjah — Orphan Sponsorship Landing Page
 
-صفحة هبوط تسويقية (paid-campaign landing page) لبرنامج **كفالة اليتيم** التابع لـ
-[جمعية بهجة العمانية للأيتام](https://bahjah.org.om/wp/)، مُعدّة للحملات الإعلانية
-المدفوعة (Meta Ads / Google Ads) بهدف تحويل الزائر إلى كفيل شهري بمبلغ 25 ريال عماني.
+Paid-campaign landing page for the **Omani Bahjah Orphan Society (جمعية بهجة العمانية للأيتام)**.
+Single goal: turn ad traffic into **monthly orphan sponsors (OMR 25 / month)**.
 
-## بنية المشروع
+- Arabic (RTL, default): `/`
+- English: `/en/`
+- Live (temporary domain): https://lightsteelblue-raven-902597.hostingersite.com/
+
+Every sponsorship button links to the official product page on bahjah.org.om
+(`/wp/product/برنامج-كفالة-يتيم/`). This page never takes payments or stores financial data.
+
+## Structure
+
 ```
-index.html                          الصفحة الكاملة (RTL, mobile-first)
-assets/css/styles.css               نظام التصميم (بدون أي مكتبة خارجية)
-assets/js/main.js                   تتبّع UTM/الأحداث + التمرير الذكي لزر الجوال الثابت
-assets/img/bahjah-logo.png|.webp    الشعار الرسمي
-assets/img/program-*.webp           صور برامج حقيقية من موقع بهجة الرسمي
-assets/img/sponsorship-desk.webp    صورة حقيقية لفريق بهجة في فعالية
-assets/img/awards/*.webp            شعارات الجوائز والاعتمادات الرسمية
-tracking/bahjah-woocommerce-tracking.php   إضافة WordPress اختيارية لتتبع صفحة الدفع
-                                            وإتمام الكفالة على موقع bahjah.org.om نفسه
+index.html                 Arabic page
+en/index.html              English page (same layout, LTR)
+assets/css/styles.css      All styles — mobile-first, no framework
+assets/js/main.js          UTM persistence, CTA/conversion events, sticky CTA, reveal
+assets/img/                Images (WebP) + og-share.jpg (1200×630 social preview)
+robots.txt, sitemap.xml    Search engine files (hreflang sitemap)
+tracking/bahjah-woocommerce-tracking.php
+                           Optional WordPress mu-plugin for bahjah.org.om
+                           (payment-page / checkout / completed-sponsorship events)
+scripts/set-domain.sh      Switch every absolute URL to the final domain
 ```
 
-## مصدر المحتوى (Source of Truth)
-جميع الحقائق، الأسعار، الإحصائيات والصور مأخوذة **حصراً** من مصادر بهجة الرسمية:
+Sections: hero → what sponsorship covers → why monthly + sponsor card → 3 steps →
+why Bahjah (facts + awards) → activities & news → FAQ → final CTA.
 
-- الموقع الحالي: `bahjah.org.om/wp/` (الرئيسية، التبرعات، المركز الإعلامي، تواصل، الاستمارات)
-- صفحة المنتج: `bahjah.org.om/wp/product/برنامج-كفالة-يتيم/`
-- الملف التعريفي الرسمي (CV/PDF): `bahjah.org.om/wp/wp-content/uploads/2025/08/CV-Print-Proof.pdf`
-- نتائج تكميلية أكدت تاريخ التأسيس والجوائز: Oman Observer، jood.om (بوابة جود للتبرعات)
+## Deploy
 
-## الصور
-- **الصور المحلية في `assets/img/`** هي صور حقيقية تم تنزيلها من الموقع الرسمي وحسابات
-  بهجة الرسمية (الشعار، صور فعاليات الأيتام، فريق الجمعية، بنك الطعام العماني التابع لها،
-  شعارات الجوائز الرسمية) — **لا يوجد أي محتوى ستوك أو مولّد بالذكاء الاصطناعي** في هذه
-  الصور. تم استبعاد أي صورة عامة (stock) غير مرتبطة فعلياً ببهجة وعدم استخدامها إطلاقاً.
-- **صور الأخبار الثلاث** (اتفاقيات ولاية سداح، الجازر، المزيونة) مرتبطة مباشرة (hotlink)
-  بخادم `bahjah.org.om` كما تظهر حالياً في المركز الإعلامي، مع سقوط آمن (`data-hide-on-error`
-  في `main.js`) يُخفي الصورة تلقائياً دون استبدالها بصورة بديلة إن تعذّر تحميلها — تفادياً
-  لعرض صورة غير مرتبطة بالخبر تحت عنوانه.
-- ⚠️ **قبل الإطلاق:** يُنصح بتنزيل نسخة محلية من صور الأخبار الثلاث أيضاً بدل الاعتماد على
-  الربط المباشر، لضمان الاستقرار وسرعة التحميل الكاملة على الجوال.
+Push to `main` → Hostinger auto-deploys (usually ~30 s, occasionally up to ~5 min).
+Check the live HTML for the new `styles.css?v=` value to confirm.
 
-## الأسعار وخيارات الكفالة
-- **الكفالة الأساسية: 25 ر.ع شهرياً** — السعر المعلن حالياً في صفحة المنتج الرسمية. (صفحة
-  المنتج على ووردبريس/ووكومرس تعرض السعر تقنياً كـ "25,000 OMR" بسبب إعداد خاطئ في وحدة
-  القياس — تم تجاهل هذا الخطأ التقني والاعتماد على الوصف النصي الرسمي "25 ريال شهرياً"
-  المذكور في نفس صفحة المنتج والملف التعريفي الرسمي.)
-- خيارات إضافية (35 / 60 / 10 ر.ع) من الملف التعريفي الرسمي (CV)، معروضة كخيارات موثقة
-  إضافية وليست بديلاً عن السعر الأساسي المعلن حالياً.
-- الحد الأدنى لمدة الكفالة (سنة واحدة) مذكور بعبارة "بحسب ملف الجمعية المنشور" لتوضيح مصدره.
-- الإحصائيات (1,361 يتيم، 16,179 كفالة راتب... إلخ) معروضة كبيانات **تاريخية لعام 2023**
-  فقط، بعلامة توضيحية صريحة، وليست أرقاماً حية.
+**Whenever `styles.css` or `main.js` changes, bump its `?v=` value in both HTML files**,
+otherwise returning visitors get the old cached file.
 
-## التتبّع (Tracking)
-- `assets/js/main.js` يحفظ معاملات UTM/`gclid`/`fbclid`/... لمدة 30 يوماً، ويُلحقها تلقائياً
-  بأي رابط CTA يشير إلى `bahjah.org.om`، ويدفع أحداث `dataLayer` (جاهزة لـ GTM): مشاهدة
-  الصفحة، بدء الكفالة، النقر على التواصل، فتح الأسئلة الشائعة، عمق التمرير.
-- عبوات فارغة لمعرّفات Meta Pixel / GA4 / Google Ads في أعلى `main.js` — تُملأ قبل الإطلاق.
-- `tracking/bahjah-woocommerce-tracking.php` إضافة WordPress اختيارية (mu-plugin) تُركَّب
-  على خادم بهجة نفسه لإطلاق أحداث "زيارة صفحة الدفع" و"بدء الدفع" و"اكتمال الكفالة" الفعلية
-  عبر ووكومرس — **لا تُغيّر أي منطق سعر أو دفع أو بوابة Bank Muscat SmartPay**، وتحفظ فقط
-  بيانات إسناد الحملة (UTM) كميتاداتا على الطلب لأغراض القياس.
-- لم يتم إنشاء أي بوابة دفع جديدة — كل أزرار الكفالة توجّه مباشرة إلى صفحة المنتج الرسمية.
+## Launch checklist
 
-## بيانات التواصل
-- الإدارة العامة: 92877577 / 23289966
-- قسم الكفالات: 91403373 (واتساب: `wa.me/96891403373`)
-- البريد الإلكتروني: bahjah1.omani@gmail.com
-- الموقع: ظفار، صلالة الشرقية، شارع 23 يوليو، بجانب بنك ظفار
+- [ ] **Connect the final domain** in Hostinger, then run
+      `scripts/set-domain.sh https://your-domain` and push.
+      The temporary `*.hostingersite.com` domain serves a Hostinger-generated
+      `robots.txt` that blocks Googlebot — organic search only works on a real domain.
+      (Ad crawlers are not affected.)
+- [ ] **Tracking IDs** — fill in `CONFIG` at the top of `assets/js/main.js`:
+      `metaPixelId`, `ga4Id`, `googleAdsId` + `googleAdsLabels`, or `gtmId`. Bump `?v=`.
+- [ ] **Completed-sponsorship tracking** (optional, on bahjah.org.om): install
+      `tracking/bahjah-woocommerce-tracking.php` as a mu-plugin and fill its constants.
+- [ ] Submit `https://your-domain/sitemap.xml` in Google Search Console.
 
-## التشغيل المحلي
-لا حاجة لخطوة بناء (build step) — يكفي فتح `index.html` مباشرة في المتصفح، أو رفع المجلد
-كاملاً (`index.html` + `assets/` + `tracking/` اختياري) على أي استضافة ثابتة (Netlify /
-Vercel / GitHub Pages / خادم الجمعية).
+## Content rules
+
+All facts, prices and statistics come only from Bahjah's official sources:
+bahjah.org.om (home, donations, product page, FAQ, media centre, contact, forms) and the
+official profile PDF (`CV-Print-Proof.pdf`). Sources are listed in the page footer.
+
+- Core sponsorship: **OMR 25/month** (the WooCommerce page shows "25,000" due to a unit
+  setting — ignore it). Minimum one year, per the profile.
+- Other options (35 / 60 / 10 OMR) are from the profile and shown only in the FAQ.
+- Statistics are labelled as historical (2023), never as live figures.
+- No invented stories, testimonials or impact percentages.
+
+### Images
+
+- `hero-cover-*.webp`, `og-share.jpg` — **Rubel Vai / Pexels**
+  (https://www.pexels.com/photo/12806845/), free licence. Illustrative only: the child is
+  not presented as a Bahjah beneficiary.
+- All other photos and award logos — Bahjah's official website and profile PDF.
+- The two news items link to bahjah.org.om's media centre.
