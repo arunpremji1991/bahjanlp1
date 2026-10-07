@@ -105,12 +105,18 @@ svg { width: 1.15em; height: 1.15em; fill: none; stroke: currentColor; stroke-wi
 .price-tag span { font-size: 15px; color: var(--muted); }
 .hero-note { display: flex; align-items: center; gap: 8px; margin: 16px 0 0; font-size: 14px; color: var(--muted); }
 .hero-note svg { color: var(--teal-600); }
+.hero-note + .hero-note { margin-top: 6px; }
+div.lede p { margin: 0 0 .7em; }
+div.lede p:last-child { margin-bottom: 0; }
 
 /* ---------- Section scaffolding ---------- */
 .section { padding: 64px 0; }
 .section-sand { background: var(--sand); }
 .section-head { max-width: 640px; margin: 0 auto 34px; text-align: center; }
 .section-head p { color: var(--ink-2); margin: 0; }
+.section-head p + p { margin-top: .8em; }
+.nowrap { white-space: nowrap; }
+@media (max-width: 420px) { .btn-lg { padding: 0 20px; font-size: 17px; } }
 .kicker { display: block; font-size: 14px; font-weight: 700; color: #b5811c; margin-bottom: 6px; }
 
 /* ---------- Covers (icon row) ---------- */
@@ -203,6 +209,33 @@ svg { width: 1.15em; height: 1.15em; fill: none; stroke: currentColor; stroke-wi
 .faq-more a { font-weight: 600; }
 .app-links { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
 
+/* ---------- Emotional intro (EN) ---------- */
+.intro { max-width: 720px; text-align: center; }
+.intro p { color: var(--ink-2); font-size: 18px; }
+.verse { margin: 6px auto 26px; max-width: 560px; padding: 18px 22px; background: var(--teal-50); border-radius: var(--r-md); font: 600 19px/1.7 var(--f-display); color: var(--teal-900); }
+.verse cite { display: block; margin-top: 4px; font: 400 14px/1.5 var(--f-body); font-style: normal; color: var(--muted); }
+.cadence { margin: 0; font: 700 clamp(19px, 4.6vw, 23px)/1.65 var(--f-display); color: var(--teal-800) !important; }
+.cadence span { display: block; }
+
+/* ---------- Hadith band (EN) ---------- */
+.hadith-band { background: var(--gold-100); text-align: center; }
+.hadith-band h2 { max-width: 640px; margin-inline: auto; }
+.hadith-mark { width: 60px; height: 60px; margin: 0 auto 14px; border-radius: 50%; display: grid; place-items: center; background: var(--paper); color: var(--gold-500); }
+.hadith-mark svg { width: 28px; height: 28px; }
+.hadith-band .prose { max-width: 620px; margin: 0 auto 1em; color: var(--ink-2); }
+.hadith-quote { max-width: 780px; margin: 22px auto 26px; padding: 0; font: 700 clamp(23px, 5.4vw, 34px)/1.5 var(--f-display); color: var(--teal-900); }
+.hadith-quote cite { display: block; margin-top: 12px; font: 500 15px/1.6 var(--f-body); font-style: normal; color: var(--muted); }
+.hadith-band .btn { margin-top: 14px; }
+
+/* ---------- Monthly + Imagine + Final micro-copy (EN) ---------- */
+.need-close { font: 700 17px/1.7 var(--f-display); color: var(--teal-800) !important; margin-bottom: 0; }
+.imagine p { max-width: 680px; margin-inline: auto; }
+.imagine p b { color: #fff; }
+.imagine .imagine-close { margin-bottom: 0; font: 700 clamp(18px, 4.4vw, 22px)/1.6 var(--f-display); color: var(--gold-500); }
+.final-for { font: 700 clamp(18px, 4.4vw, 22px)/1.6 var(--f-display); color: #fff !important; }
+.final-for span { display: block; }
+.final .final-dua { margin: 16px 0 0; font-size: 15px; font-style: italic; color: #cfe3da; }
+
 /* ---------- Final CTA ---------- */
 .final { position: relative; overflow: hidden; color: #fff; text-align: center; padding: 76px 0; }
 .final-bg { position: absolute; inset: 0; }
@@ -289,7 +322,7 @@ svg { width: 1.15em; height: 1.15em; fill: none; stroke: currentColor; stroke-wi
   .need-story img { height: 100%; aspect-ratio: auto; }
   .need-body { padding: 32px 30px; align-self: center; }
   .sponsor-card { padding: 30px 28px; }
-  .steps { grid-template-columns: repeat(3, 1fr); gap: 36px; }
+  .steps { grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 36px; max-width: 1080px; }
   .step { flex-direction: column; align-items: center; text-align: center; }
   .why-grid { grid-template-columns: .9fr 1.1fr; align-items: center; gap: 56px; }
   .why-grid .section-head { text-align: start; margin: 0; }
