@@ -237,6 +237,8 @@ div.lede p:last-child { margin-bottom: 0; }
 /* ---------- Monthly + Imagine + Final micro-copy (EN) ---------- */
 .need-close { font: 700 17px/1.7 var(--f-display); color: var(--teal-800) !important; margin-bottom: 0; }
 .imagine p { max-width: 680px; margin-inline: auto; }
+.img-lines span { display: block; text-wrap: balance; }
+.img-lines span + span { margin-top: .45em; }
 .imagine p b { color: #fff; }
 .imagine .imagine-close { margin-bottom: 0; font: 700 clamp(18px, 4.4vw, 22px)/1.6 var(--f-display); color: var(--gold-500); }
 .final-for { font: 700 clamp(18px, 4.4vw, 22px)/1.6 var(--f-display); color: #fff !important; }
@@ -294,11 +296,28 @@ div.lede p:last-child { margin-bottom: 0; }
   * { transition: none !important; }
 }
 
+/* ---------- < 960px: compact impact rows (phones 1 col, tablets 2 cols) ---------- */
+@media (max-width: 959px) {
+  .covers { grid-template-columns: 1fr; gap: 14px; max-width: 420px; margin-inline: auto; }
+  .cover, .cover:last-child { grid-column: auto; display: grid; grid-template-columns: 52px 1fr; column-gap: 14px; align-items: center; text-align: start; padding: 0; }
+  .cover-ico { width: 52px; height: 52px; margin: 0; grid-row: span 2; align-self: center; }
+  .cover-ico svg { width: 24px; height: 24px; }
+  .cover h3 { margin: 0; align-self: end; }
+  .cover p { align-self: start; }
+  .covers-note { margin-top: 24px; }
+}
+@media (min-width: 640px) and (max-width: 959px) {
+  .covers { grid-template-columns: 1fr 1fr; gap: 18px 28px; max-width: 760px; }
+}
+@media (max-width: 639px) {
+  .fact { padding: 14px 10px; }
+  .fact b { font-size: 24px; }
+}
+
 /* ---------- ≥ 640px ---------- */
 @media (min-width: 640px) {
   :root { --gutter: 28px; }
   .brand-name { display: inline; }
-  .covers { grid-template-columns: repeat(5, 1fr); }
   .cover:last-child { grid-column: auto; }
   .facts { grid-template-columns: repeat(4, 1fr); }
   .gallery { grid-template-columns: repeat(3, 1fr); }
@@ -316,6 +335,7 @@ div.lede p:last-child { margin-bottom: 0; }
   .sticky-cta { display: none; }
   .header-cta { display: inline-flex; }
   .header-nav { display: flex; margin-inline: auto; }
+  .covers { grid-template-columns: repeat(5, 1fr); }
   .section { padding: 96px 0; }
   .hero { --hero-bg: #f4f6f2; background: var(--hero-bg); min-height: clamp(560px, 80vh, 720px); display: flex; align-items: center; }
   .hero-grid { grid-template-columns: minmax(0, 560px); padding-block: 72px; }
