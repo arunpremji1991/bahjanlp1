@@ -114,7 +114,7 @@ div.lede p { margin: 0 0 .7em; }
 div.lede p:last-child { margin-bottom: 0; }
 
 /* ---------- Section scaffolding ---------- */
-.section { padding: 64px 0; }
+.section { padding: 56px 0; }
 .section-sand { background: var(--sand); }
 .section-head { max-width: 640px; margin: 0 auto 34px; text-align: center; }
 .section-head p { color: var(--ink-2); margin: 0; }
@@ -138,8 +138,9 @@ div.lede p:last-child { margin-bottom: 0; }
 
 /* ---------- Need + sponsor card ---------- */
 .need-grid { display: grid; gap: 20px; }
+.need-grid > * { min-width: 0; }
 .need-story { background: var(--teal-50); border-radius: var(--r-lg); overflow: hidden; display: grid; }
-.need-story img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; }
+.need-story img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: 78% 85%; }
 .need-body { padding: 22px 22px 26px; }
 .need-body h2 { font-size: clamp(22px, 5.4vw, 30px); }
 .need-body p { color: var(--ink-2); }
@@ -148,10 +149,11 @@ div.lede p:last-child { margin-bottom: 0; }
 
 .sponsor-card { background: var(--paper); border: 1px solid var(--line); border-radius: var(--r-lg); padding: 24px 22px; box-shadow: var(--shadow); align-self: start; }
 .sponsor-card h3 { font-size: 20px; margin-bottom: 14px; }
-.plan-opt { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 14px 16px; margin-bottom: 18px; border: 2px solid var(--teal-700); border-radius: var(--r-md); background: var(--teal-50); }
+.plan-opt { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 6px 10px; padding: 14px 16px; margin-bottom: 18px; border: 2px solid var(--teal-700); border-radius: var(--r-md); background: var(--teal-50); }
 .plan-opt b { font: 700 16px/1.4 var(--f-display); color: var(--teal-900); display: flex; align-items: center; gap: 8px; }
 .plan-opt b svg { color: var(--teal-700); }
-.plan-amount { font: 800 30px/1 var(--f-display); color: var(--teal-900); white-space: nowrap; }
+.plan-amount { font: 800 30px/1 var(--f-display); color: var(--teal-900); white-space: nowrap; flex: none; }
+.plan-amount small { white-space: nowrap; }
 .plan-amount small { font: 500 14px var(--f-body); color: var(--muted); }
 .checks { display: grid; gap: 8px; margin: 0 0 22px; }
 .checks li { display: flex; gap: 10px; align-items: flex-start; font-size: 15.5px; color: var(--ink-2); line-height: 1.6; }
@@ -213,13 +215,12 @@ div.lede p:last-child { margin-bottom: 0; }
 .faq-more a { font-weight: 600; }
 .app-links { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
 
-/* ---------- Emotional intro (EN) ---------- */
-.intro { max-width: 720px; text-align: center; }
-.intro p { color: var(--ink-2); font-size: 18px; }
+/* ---------- Verse + cadence (Hadith band) ---------- */
 .verse { margin: 6px auto 26px; max-width: 560px; padding: 18px 22px; background: var(--teal-50); border-radius: var(--r-md); font: 600 19px/1.7 var(--f-display); color: var(--teal-900); }
 .verse cite { display: block; margin-top: 4px; font: 400 14px/1.5 var(--f-body); font-style: normal; color: var(--muted); }
 .cadence { margin: 0; font: 700 clamp(19px, 4.6vw, 23px)/1.65 var(--f-display); color: var(--teal-800) !important; }
 .cadence span { display: block; }
+.saw { font-family: var(--f-body); font-weight: 400; font-size: .82em; }
 
 /* ---------- Hadith band (EN) ---------- */
 .hadith-band { background: var(--gold-100); text-align: center; }
@@ -230,6 +231,8 @@ div.lede p:last-child { margin-bottom: 0; }
 .hadith-quote { max-width: 780px; margin: 22px auto 26px; padding: 0; font: 700 clamp(23px, 5.4vw, 34px)/1.5 var(--f-display); color: var(--teal-900); }
 .hadith-quote cite { display: block; margin-top: 12px; font: 500 15px/1.6 var(--f-body); font-style: normal; color: var(--muted); }
 .hadith-band .btn { margin-top: 14px; }
+.hadith-band .verse { background: var(--paper); }
+.hadith-band .cadence { margin: 0 auto 1em; }
 
 /* ---------- Monthly + Imagine + Final micro-copy (EN) ---------- */
 .need-close { font: 700 17px/1.7 var(--f-display); color: var(--teal-800) !important; margin-bottom: 0; }
@@ -238,6 +241,7 @@ div.lede p:last-child { margin-bottom: 0; }
 .imagine .imagine-close { margin-bottom: 0; font: 700 clamp(18px, 4.4vw, 22px)/1.6 var(--f-display); color: var(--gold-500); }
 .final-for { font: 700 clamp(18px, 4.4vw, 22px)/1.6 var(--f-display); color: #fff !important; }
 .final-for span { display: block; }
+.imagine-close, .final-for, .need-close { text-wrap: balance; }
 .final .final-dua { margin: 16px 0 0; font-size: 15px; font-style: italic; color: #cfe3da; }
 
 /* ---------- Final CTA ---------- */
@@ -322,8 +326,8 @@ div.lede p:last-child { margin-bottom: 0; }
   .hero-copy { margin: 0; padding: 0; }
   .hero h1 { font-size: min(42px, 3.2vw); text-wrap: wrap; }
   .hero h1 .accent { white-space: nowrap; }
-  .need-grid { grid-template-columns: 1.5fr 1fr; gap: 28px; align-items: stretch; }
-  .need-story { grid-template-columns: .8fr 1.2fr; }
+  .need-grid { grid-template-columns: 1.45fr 1fr; gap: 28px; align-items: stretch; }
+  .need-story { grid-template-columns: .7fr 1.3fr; }
   .need-story img { height: 100%; aspect-ratio: auto; }
   .need-body { padding: 32px 30px; align-self: center; }
   .sponsor-card { padding: 30px 28px; }
