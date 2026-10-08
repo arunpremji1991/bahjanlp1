@@ -63,8 +63,11 @@ official profile PDF (`CV-Print-Proof.pdf`). Sources are listed in the page foot
 
 ### Images
 
-- `hero-cover-*.webp`, `og-share.jpg` — **Rubel Vai / Pexels**
-  (https://www.pexels.com/photo/12806845/), free licence. Illustrative only: the child is
-  not presented as a Bahjah beneficiary.
-- All other photos and award logos — Bahjah's official website and profile PDF.
+- `bahjah-orphan-hero-*`, `bahjah-orphan-monthly-support-*`, `bahjah-orphan-education-*`,
+  `bahjah-orphan-final-cta-*`, `og-share.jpg` — **illustrative images generated with Higgsfield AI**
+  (GPT Image 2.5) for this campaign: hero, monthly-sponsorship, "Imagine" background and final
+  CTA background. They do not depict real Bahjah beneficiaries; this is stated in the page footer.
+  Prompts required authentic Omani dress/architecture, no flags, no text/logos, no face close-ups.
+- All other photos (activities gallery incl. `photo-outing.webp`), award logos and the Bahjah logo —
+  Bahjah's official website and profile PDF. `photo-event.webp` is kept in the repo but no longer shown.
 - The two news items link to bahjah.org.om's media centre.
