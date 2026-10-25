@@ -271,6 +271,8 @@ div.lede p:last-child { margin-bottom: 0; }
 .sources summary { cursor: pointer; color: #e4efea; min-height: 40px; display: flex; align-items: center; }
 .sources ul { text-align: start; padding-inline-start: 18px; list-style: disc; display: grid; gap: 4px; font-size: 13px; }
 .copy { margin: 0; font-size: 12.5px; opacity: .75; }
+.credit { margin: 4px 0 0; padding-top: 14px; border-top: 1px solid rgba(255,255,255,.12); width: 100%; font-size: 13px; color: #b8cdc5; text-align: center; }
+.credit b { color: #fff; font-weight: 600; letter-spacing: .02em; }
 
 /* ---------- Sticky mobile CTA ---------- */
 .sticky-cta {
@@ -357,7 +359,7 @@ div.lede p:last-child { margin-bottom: 0; }
   .why-grid .section-head { text-align: start; margin: 0; }
   .footer-grid { grid-template-columns: 1fr auto; align-items: center; justify-items: stretch; text-align: start; }
   .footer-links { justify-content: flex-end; }
-  .footer-grid .sources, .footer-grid .copy { grid-column: 1 / -1; }
+  .footer-grid .sources, .footer-grid .copy, .footer-grid .credit { grid-column: 1 / -1; }
 }
 
 /* ---------- Header nav: mid-width desktop ---------- */
