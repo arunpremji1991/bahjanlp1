@@ -272,7 +272,8 @@ div.lede p:last-child { margin-bottom: 0; }
 .sources ul { text-align: start; padding-inline-start: 18px; list-style: disc; display: grid; gap: 4px; font-size: 13px; }
 .copy { margin: 0; font-size: 12.5px; opacity: .75; }
 .credit { margin: 4px 0 0; padding-top: 14px; border-top: 1px solid rgba(255,255,255,.12); width: 100%; font-size: 13px; color: #b8cdc5; text-align: center; }
-.credit b { color: #fff; font-weight: 600; letter-spacing: .02em; }
+.credit a { color: #fff; font-weight: 600; letter-spacing: .02em; text-decoration: none; }
+.credit a:hover { text-decoration: underline; }
 
 /* ---------- Sticky mobile CTA ---------- */
 .sticky-cta {
